@@ -1,0 +1,20 @@
+:root{
+    --dark-red: #8a0000;
+    --pink: #CB4F6A;
+    --light-pink: #FFD3DC;
+    --background: #FAF0F2;
+
+    --header-font-family: 'Playfair Display', serif;
+    --body-font-family: 'Cormorant Garamond', serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    font-family: var(--body-font-family);
+}
+
+h1{
+    font-family: var(--header-font-family);
+}
