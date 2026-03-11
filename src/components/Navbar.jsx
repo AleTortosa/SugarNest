@@ -1,6 +1,9 @@
+/** componente Navbar.jsx */
+
 import { Link } from 'react-router-dom'
 import { Fragment, useState } from 'react'
 import '../styles/Navbar.css'
+import logo from '../assets/logoSugarNest.png'
 
 export function Navbar() {
     const [menu, setMenu] = useState(false)
@@ -19,22 +22,31 @@ export function Navbar() {
 
 
     function toggleMenu(){
-        setMenu(prev => !prev)
+        setMenu(!menu)
     }
     
     return (
         <Fragment>
             <nav className='navbar'>
                 <div className='navTop'>
-                    <button className='hamburguesa' onClick={toggleMenu}>{icono}</button>
-                    <img className='logo' src="../assets/logo.png" alt="Logo" />
+                    <button className='hamburguesa' aria-label='Menu' onClick={toggleMenu}>{icono}</button>
+                    <img className='logo' src={logo} alt="Logo" />
                 </div>
 
                 <ul className={navClassName}>
-                    <li className='filaMenu'><Link to="/" onClick={toggleMenu}>Inicio</Link></li>
-                    <li className='filaMenu'><Link to="/menu" onClick={toggleMenu}>Menú</Link></li>
-                    <li className='logo-escritorio'><img src="../assets/logo.png" alt="Logo" className='logo'/></li>
-                    <li className='filaMenu'><Link to="/contact" onClick={toggleMenu}>Contacto</Link></li>
+                    <li className='filaMenu'>
+                        <Link to="/" onClick={toggleMenu}>Inicio</Link>
+                    </li>                                         
+                        
+                    <li className='logo-escritorio'>
+                        <Link to="/">
+                            <img src={logo} alt="Logo" className='logo'/>
+                        </Link>
+                    </li>
+
+                    <li className='filaMenu'>
+                        <Link to="/contact" onClick={toggleMenu}>Contacto</Link>
+                    </li>                        
                 </ul>
             </nav>
         </Fragment>

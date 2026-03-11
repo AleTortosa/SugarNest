@@ -1,3 +1,4 @@
+/*Navbar.css*/
 .hamburguesa{
     margin: 10px;
     border: 5px solid var(--dark-red);
@@ -16,9 +17,11 @@
     transform: translateX(-100%);
     transition: transform 0.6s;
     width: 100%;
-    padding: 20px;
-    text-align: center;
+    padding: 32px;
     list-style-type: none;
+    margin: 0px;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 .navMenu.activo{
@@ -27,6 +30,22 @@
 
 .navMenu a{
     text-decoration: none;
+    color: var(--pink);
+    
+    font-size: var(--menu);
+    font-weight: var(--bold);
+    font-family: var(--header-font-family);
+    line-height: 1.4;
+    letter-spacing: 0.5px; 
+    
+    padding: 0px 40px;
+}
+
+.filaMenu{
+    background-color: var(--light-pink);
+    
+    margin: 20px 0px;
+    padding: 10px;
 }
 
 .navbarDesktop{
@@ -35,6 +54,11 @@
 
 .logo-escritorio{
     display: none;
+}
+
+.logo{
+    height: 50px;
+    width: auto;
 }
 
 @media (min-width: 1024px) {
@@ -48,16 +72,25 @@
         border: 0px;
         top: 0px;
         position: sticky;
-        padding: 20px;        
+        padding: 0px;        
         list-style-type: none;
         display: flex;
         gap: 50px;
-        justify-content: center;
+        justify-content: space-around;
+    }
+
+    .navMenu a{
+        background-color: var(--background);
     }
 
     .logo-escritorio{
         display: inline;
         width: 20%;
+        text-align: center;
+    }
+
+    .filaMenu{
+        background-color: var(--background);
     }
 
 }
