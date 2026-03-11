@@ -3,7 +3,7 @@
 import { Link } from 'react-router-dom'
 import { Fragment, useState } from 'react'
 import '../styles/Navbar.css'
-import logo from '../assets/logoSugarNest.png'
+import logo from '../assets/images/logoSugarNest.png'
 
 export function Navbar() {
     const [menu, setMenu] = useState(false)
