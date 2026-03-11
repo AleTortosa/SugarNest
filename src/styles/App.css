@@ -10,8 +10,16 @@
     --body-font-family: 'Cormorant Garamond', serif;
 
     /*Tamaños*/
-    --menu: 4vh;
+    --menu: 3vh;
     --bold: 700;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 body {
