@@ -62,8 +62,10 @@
 
 .footer-links{
     font-size: larger;
-    text-align: center;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 .footer-links > span{
@@ -114,4 +116,30 @@
         flex: 1;
         justify-content: center;
     }
+}
+
+
+/*
+-------------------------
+
+CSS PARA PAGINAS DE LEGAL 
+
+-------------------------
+*/
+
+.legal{
+    max-width:900px;
+    margin:0 auto;
+    padding:60px 32px;
+}
+
+.legal > h1{
+    background-color: var(--light-pink);
+    text-align: center;
+    padding: 30px;
+    color: var(--dark-red);
+}
+
+.legal > h2{
+    color: var(--pink);
 }
