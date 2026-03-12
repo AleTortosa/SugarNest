@@ -67,13 +67,6 @@
     box-sizing: border-box;
 }
 
-.filaMenu:hover{
-    transform: scale(1.2);
-}
-.logo-escritorio:hover{
-    transform: scale(1.1);
-}
-
 
 @media (min-width: 1024px) {
     .navTop{
@@ -107,6 +100,13 @@
     .filaMenu{
         background-color: var(--background);
         text-align: center;
+    }
+
+    .filaMenu:hover{
+        transform: scale(1.2);
+    }
+    .logo-escritorio:hover{
+        transform: scale(1.1);
     }
 
 }
