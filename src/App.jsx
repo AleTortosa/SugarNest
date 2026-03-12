@@ -11,19 +11,23 @@ import { Cookies } from './pages/legal/Cookies.jsx'
 export function App() {
     return (
         <BrowserRouter>
-            
-            <Navbar />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/menu" element={<Menu />} />
-                <Route path="/contact" element={<Contact />} />
+            <div className='app-container'>
+                <Navbar />
 
-                <Route path="/aviso-legal" element={<AvisoLegal />} />
-                <Route path="/privacidad" element={<Privacidad />} />
-                <Route path="/cookies" element={<Cookies />} />
-            </Routes>
+                <main>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/menu" element={<Menu />} />
+                        <Route path="/contact" element={<Contact />} />
 
-            <Footer />
+                        <Route path="/aviso-legal" element={<AvisoLegal />} />
+                        <Route path="/privacidad" element={<Privacidad />} />
+                        <Route path="/cookies" element={<Cookies />} />
+                    </Routes>
+                </main>
+
+                <Footer />
+            </div>
         </BrowserRouter>
     )
 }
