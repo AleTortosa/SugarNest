@@ -30,6 +30,7 @@
 }
 
 .footer-brand > h3 > a{
+    display: inline-block;
     color: var(--dark-red);
     font-size: xx-large;
 }
@@ -49,11 +50,6 @@
     justify-content: center;
     gap: 15px;
     padding: 5px;
-}
-
-.links-redes a:hover,
-.footer-brand > h3:hover{
-    transform: scale(1.3);
 }
 
 .footer-links h4:hover{
@@ -115,6 +111,11 @@
     .footer-links {
         flex: 1;
         justify-content: center;
+    }
+
+    .links-redes a:hover,
+    .footer-brand a:hover{
+        transform: scale(1.3);
     }
 }
 
