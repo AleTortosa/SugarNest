@@ -1,0 +1,113 @@
+/*home.css*/
+
+/*Creamos animación del carrusel*/
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.home-hero{
+    background-image: url("../assets/images/hero.jpg");
+    min-height: 100dvh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    background-position: center top;    
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content{
+    color: var(--dark-red);
+    font-family: var(--header-font-family);
+    margin: 30px;
+}
+
+.festivo-content{
+    text-align: center;
+    color: var(--dark-red);
+}
+
+.home-carrusel-container{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.home-carrusel-track{
+    display: flex;
+    animation: slide 15s linear infinite;
+    will-change: transform;
+    width: max-content;
+}
+
+.home-carrusel-track:hover {
+  animation-play-state: paused; 
+}
+
+.home-carrusel-item{
+    width: 180px;
+    height: 225px;
+}
+
+.home-carrusel-item > img{
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 4px solid var(--dark-red);
+    align-items: center;
+    filter: grayscale(0%);
+    transition: filter 0.3s ease;
+}
+
+.home-carrusel-track:hover img{
+    filter: grayscale(50%);   
+}
+
+.home-carrusel-item > img:hover{
+    filter: grayscale(0%);   
+}
+
+.zoom-img{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999;
+
+    background-color: rgba(0, 0, 0, 0.734);
+}
+
+.zoom-img > svg{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: var(--dark-red);
+}
+
+.cerrar-foto{
+    display: none;
+}
+
+.zoom-img img{
+    max-width: 90%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+@media (min-width: 1024px) {
+    .home-carrusel-item{
+        width: 360px;
+        height: 450px;
+    }
+}
