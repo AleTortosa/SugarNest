@@ -51,7 +51,7 @@ export function Footer() {
                     </h4>
                 </div>
             </div>
-            <p className="copy">© 2026 SugarNest | Todos los derechos resservador</p>
+            <p className="copy">© 2026 SugarNest | Todos los derechos reservador</p>
         </footer>
     )
 }

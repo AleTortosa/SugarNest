@@ -22,7 +22,7 @@
 
 .footer-social > h3{
     color: var(--dark-red);
-    font-size: x-large;
+    font-size: large;
 }
 
 .footer a{
@@ -32,7 +32,7 @@
 .footer-brand > h3 > a{
     display: inline-block;
     color: var(--dark-red);
-    font-size: xx-large;
+    font-size: x-large;
 }
 
 .footer-social .links-redes a{
@@ -89,7 +89,7 @@
     align-items: center;
 }
 
-@media (min-width: 768px){
+@media (min-width: 500px){
 
     .footer-content{
         align-items: center;
