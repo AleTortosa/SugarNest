@@ -1,3 +1,8 @@
+/* 
+  ScrollToTop.jsx
+
+  Sube la vista hasta arriba de la pantalla al ser llamada
+*/
 import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
 

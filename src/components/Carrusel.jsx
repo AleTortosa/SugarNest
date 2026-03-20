@@ -1,3 +1,14 @@
+/* 
+  Carrusel.jsx
+
+  Muestra un carrusel infinito de imágenes.
+
+  Props:
+  - imagenes: array de objetos { src }
+
+  Nota:
+  Se duplican las imágenes internamente para permitir el efecto de scroll infinito sin cortes.
+*/
 import { Fragment, useState } from "react"
 
 export function Carrusel({ imagenes }) {

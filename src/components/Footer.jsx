@@ -1,4 +1,8 @@
-/** Footer.jsx */
+/* 
+  Footer.jsx
+
+  Componente de pie de página.
+*/
 import { Link } from "react-router-dom"
 import "../styles/footer.css"
 import { FaInstagram, FaWhatsapp } from "react-icons/fa"

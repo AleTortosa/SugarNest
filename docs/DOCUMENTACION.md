@@ -5,14 +5,14 @@
 Crear una web de presentación para la pastelería ficticia SugarNest, con páginas de Home, Menú, Contacto y secciones legales (Aviso Legal, Privacidad, Cookies). También incluye un footer, navbar y hero visual.
 
 **Qué problema resuelve:**  
-Permite mostrar el concepto de la marca, su identidad visual y servicios al público. Es un proyecto para portfolio y TFG.
+Permite mostrar el concepto de la marca, su identidad visual y servicios al público. Es un proyecto en construcción.
 
 **Estado actual del proyecto:**  
 - Frontend funcional con React + Vite.  
 - Routing con `react-router-dom`.  
 - Footer y Navbar responsive implementados.  
 - Secciones legales completas con contenido obligatorio para frontend, aunque sin marca registrada todavía.  
-- Página Home con hero visual aún pendiente de ajuste de imagen responsiva.
+- Página Home con hero visual.
 
 ---
 
@@ -22,7 +22,6 @@ Permite mostrar el concepto de la marca, su identidad visual y servicios al púb
 - **CSS:** CSS modular por componente (`App.css`, `Navbar.css`, `Footer.css`, `home.css`)  
 - **Iconos:** `react-icons` (`FaInstagram`, `FaWhatsapp`, `MdEmail`)  
 - **Tipografías:** Google Fonts (`Cormorant Garamond`, `Playfair Display`)  
-- **Versiones:** No se especificaron versiones exactas.
 
 ---
 
@@ -34,9 +33,8 @@ Permite mostrar el concepto de la marca, su identidad visual y servicios al púb
 src/
 ├─ assets/
 │  └─ images/
-│     ├─ hero.png
-│     └─ logoSugarNest.png
 ├─ components/
+│  ├─ Carrusel.jsx
 │  ├─ Navbar.jsx
 │  ├─ Footer.jsx
 │  └─ ScrollToTop.jsx
@@ -49,9 +47,9 @@ src/
 │     ├─ Privacidad.jsx
 │     └─ Cookies.jsx
 ├─ styles/
-│  ├─ App.css
-│  ├─ Navbar.css
-│  ├─ Footer.css
+│  ├─ app.css
+│  ├─ navbar.css
+│  ├─ footer.css
 │  └─ home.css
 ├─ App.jsx
 └─ main.jsx
@@ -61,130 +59,96 @@ src/
 
 * **Componentes modulares**: Navbar y Footer separados, CSS independiente por componente para mantener modularidad.
 * **Páginas organizadas por funcionalidad**: Carpeta `pages` para cada página y subcarpeta `legal` para las páginas legales.
-* **Assets centralizados**: Imágenes en `assets/images` para fácil reutilización.
-* **CSS separado**: Cada componente/página tiene su archivo CSS, más `app.css` para estilos globales.
+* **Assets**: Imágenes en `assets/images` para fácil reutilización.
+* **CSS separado**: Existen diferentes archivos CSS para las páginas, más `app.css` para estilos globales.
 * **Routing limpio**: Cada página exporta su componente y se integra en `main.jsx` con React Router.
 * **Convención de nombres**: CamelCase para componentes React, minúsculas para archivos de páginas, consistencia en carpetas y nombres de CSS.
 
-**Patrones usados:**  
-- Composición de componentes.  
-- CSS modular por componente para aislar estilos.  
-- Responsive design con media queries y `flex` para layout de footer y navbar.  
-
 **Organización de carpetas/componentes:**  
-- `components/`: componentes reutilizables (Navbar, Footer)  
-- `pages/`: páginas principales (Home, Menu, Contacto, legales)  
-- `styles/`: CSS por componente  
+- `components/`: componentes reutilizables
+- `pages/`: páginas principales
+- `styles/`: CSS modular  
 
 ---
 
 ## 4. FUNCIONALIDADES IMPLEMENTADAS
-- Navbar responsive con links internos.  
-- Footer responsive:  
-  - En móvil: `footer-brand` + `footer-social` arriba, `footer-links` abajo.  
-  - En escritorio: tres hijos (`footer-brand`, `footer-social`, `footer-links`) con `space-between` usando `display: contents` y `flex: 1`.  
-- Footer social con iconos interactivos y hover scale.  
+
+### UI base
+- Navbar responsive con navegación interna
+- Footer responsive con enlaces legales y redes sociales
 - Routing con `react-router-dom` hacia páginas legales y secciones principales.  
 - Páginas legales (`AvisoLegal`, `Privacidad`, `Cookies`) con contenido obligatorio mínimo.  
-- Home con hero visual (`img`) y texto de bienvenida.  
+- Home con hero visual
+
+### Carrusel de imágenes
+- Componente reutilizable `<Carrusel />`
+- Render dinámico mediante `.map()`
+- Duplicación de imágenes para simular loop infinito
+- Pausa en hover
+
+### Modal de imagen (zoom)
+- Estado con `useState`
+- Muestra imagen ampliada al hacer click
+- Overlay con `position: fixed`
+- Cierre mediante botón (SVG)
 
 **Cómo funcionan internamente:**  
-- Navbar y Footer siempre visibles, Home y páginas legales renderizadas por rutas.  
-- Footer utiliza flexbox con media queries y `display: contents` para layout adaptable sin duplicar elementos.  
-- Enlaces sociales y legales estilizados y con hover.  
+- Navbar y Footer permanecen fijos en todas las páginas  
+- El contenido principal cambia según la ruta mediante React Router  
+- Enlaces y elementos interactivos usan estilos con hover y transiciones CSS  
 
 ---
 
-## 5. CÓDIGO RELEVANTE
+## 5. DECISIONES TÉCNICAS
 
-**Footer.jsx**
+- Páginas legales implementadas aunque la marca no esté registrada: se indica “proyecto en desarrollo” para cumplir requisitos legales mínimos.
+- Uso de `.map()` para render dinámico de listas
+- Uso de props para reutilización de componentes
+- Duplicación de arrays (`[...imagenes, ...imagenes]`) para evitar cortes en carrusel infinito
+- Uso de `background-image` en hero para mejor control responsive
+- Separación de CSS por componente para mantener modularidad y facilidad de mantenimiento.
+- Uso de `display: contents` para layout de footer en escritorio: permite que los hijos de `.footer-top` se comporten como si fueran hijos directos de `.footer-content`.
 
-```jsx
-<footer className="footer">
-  <div className="footer-content">
-    <div className="footer-top">
-      <div className="footer-brand">
-        <h3><Link to="/">SugarNest</Link></h3>
-        <p>Pastelería artesanal</p>
-      </div>
-      <div className="footer-social">
-        <h3>Síguenos en redes sociales</h3>
-        <div className="links-redes">
-          <a href="https://instagram.com/sugarnest.bakery/" target="_blank" rel="noopener noreferrer"><FaInstagram/></a>
-          <a href="https://wa.me/34621387716" target="_blank"><FaWhatsapp/></a>
-          <a href="mailto:sugarnest.contacto@gmail.com"><MdEmail/></a>
-        </div>
-      </div>
-    </div>
-    <div className="footer-links">
-      <h4><Link to="/aviso-legal">Aviso legal</Link></h4>
-      <h4><Link to="/privacidad">Privacidad</Link></h4>
-      <h4><Link to="/cookies">Cookies</Link></h4>
-    </div>
-  </div>
-  <p className="copy">© 2026 SugarNest | Todos los derechos reservados</p>
-</footer>
-```
+## 6. PROBLEMAS DETECTADOS Y SOLUCIONES
 
-**Ejemplo de página legal (AvisoLegal.jsx)**
+- ❌ Footer en móvil aparecía en tres líneas debido a tamaño de fuente →  
+  ✔️ solucionado con flexbox y media queries.
 
-```jsx
-export function AvisoLegal() {
-  return (
-    <main className="legal">
-      <h1>Aviso legal</h1>
-      <p><strong>Titular:</strong> SugarNest (proyecto en desarrollo)</p>
-      <p><strong>Email:</strong> sugarnest.contacto@gmail.com</p>
-      <p>El acceso y uso de este sitio web atribuye la condición de usuario e implica la aceptación de las condiciones aquí descritas.</p>
-    </main>
-  )
-}
-```
+- ❌ Scroll a top en rutas React no funcionaba con Link →  
+  ✔️ se implementó `useEffect(() => window.scrollTo(0,0), [])` en componentes de página.
 
-**CSS Footer y legal**
+- ❌ Salto en carrusel →  
+  ✔️ duplicación de imágenes + ajuste de `translateX`.
 
-* `.footer-content` con `flex-wrap` y `gap`, `.footer-top` para organizar branding/social, `.footer-links` con `flex`.
-* `.legal` centrado y con máximo ancho 900px.
-* Hover y transform en iconos y links.
-* Media queries para responsive y `display: contents` para escritorio.
+- ❌ `key` duplicadas →  
+  ✔️ uso de combinación `src-index`.
 
-## 6. DECISIONES TÉCNICAS IMPORTANTES
+- ❌ Doble render en desarrollo →  
+  ✔️ identificado como comportamiento de React StrictMode.
 
-* Uso de `display: contents` para layout de footer en escritorio: permite que los hijos de `.footer-top` se comporten como si fueran hijos directos de `.footer-content`.
-* Separación de CSS por componente para mantener modularidad y facilidad de mantenimiento.
-* Hero en Home inicialmente con `<img>` y clase `.home-hero`.
-* Decidido usar colores rosas y rojo de la paleta estética para branding.
-* Páginas legales implementadas aunque la marca no esté registrada: se indica “proyecto en desarrollo” para cumplir requisitos legales mínimos.
-* Alternativas descartadas:
+- ❌ Hover afectando a todos los elementos →  
+  ✔️ ajuste de selectores CSS.
 
-  * Crear un hero con `<img>` directamente en lugar de `<div>` con `background-image`. Se decidió usar `<div>` para control de cover y `vh` adaptativo.
+## 7. ESTADO ACTUAL
 
-## 7. PROBLEMAS DETECTADOS Y SOLUCIONES
+- Layout principal completo  
+- Routing funcional  
+- Páginas legales implementadas  
+- Carrusel reutilizable operativo  
+- Modal de imágenes funcional  
+- Home en desarrollo (estructura definida, contenido en progreso)  
 
-* Footer en móvil aparecía en tres líneas debido a tamaño de fuente: solucionado con flexbox y media queries.
-* `transform: scale` no funcionaba en `h3:hover` aplicado a `<a>` interno: se corrigió apuntando directamente al `<a>` en CSS.
-* Scroll a top en rutas React no funcionaba con Link: se implementó `useEffect(() => window.scrollTo(0,0), [])` en componentes de página.
-* Hero con imagen vertical y hueco en pantalla: se decidió usar `<div>` con `background-image` y `background-size: cover` para cubrir toda la pantalla.
+## 8. PRÓXIMOS PASOS
 
-## 8. ESTADO ACTUAL EXACTO
+- Completar contenido de la Home  
+- Diseñar página Menú  
+- Implementar página Contacto  
+- Mejorar UX y animaciones  
+- Optimización de imágenes  
 
-* Footer y Navbar terminados y responsivos.
-* Páginas legales implementadas con contenido mínimo.
-* Home con hero visual pendiente de ajuste completo responsive.
-* Routing entre páginas funcionando correctamente.
-
-## 9. PRÓXIMOS PASOS
-
-* Ajustar hero de Home para cubrir viewport completo (`height: 100vh`) y mantener estética.
-* Revisar imágenes y adaptarlas a horizontal cuando sea necesario.
-* Continuar diseño y contenido de página Home.
-* Optimizar CSS y reducir subclases redundantes.
-* Revisar compatibilidad con navegadores modernos (`display: contents` y flex).
-* Implementar meta tags y favicon definitivo.
-
-## 10. CONTEXTO ADICIONAL
+## 9. CONTEXTO ADICIONAL
 
 * Las imágenes de hero son de Unsplash, libres bajo su licencia.
 * La web es un frontend de exposición, no recoge datos personales todavía.
 * Los enlaces legales cumplen con lo mínimo necesario para frontend.
-* Estilo general: estética elegante, paleta de rosas y rojos para remarcar.
+* Estilo general: estética elegante, paleta de rosas y rojos.

@@ -1,5 +1,8 @@
-/** componente Navbar.jsx */
+/* 
+  Navbar.jsx
 
+  Componente de navegación principal.
+*/
 import { Link } from 'react-router-dom'
 import { Fragment, useState, useEffect } from 'react'
 import '../styles/Navbar.css'
@@ -26,10 +29,14 @@ export function Navbar() {
         document.body.scrollTop = 0
         document.documentElement.scrollTop = 0
         return () => document.body.style.overflow = '';
-    }, [menu])
+    }, [menu]);
 
     function toggleMenu() {
-        setMenu(!menu)
+        setMenu(!menu);
+    }
+
+    function cerrarMenu() {
+        setMenu(false);
     }
 
     return (
@@ -44,10 +51,10 @@ export function Navbar() {
 
                 <ul className={navClassName}>
                     <li className='filaMenu'>
-                        <Link to="/">P&aacute;gina principal</Link>
+                        <Link to="/" onClick={()=>cerrarMenu()}>P&aacute;gina principal</Link>
                     </li>
                     <li className='filaMenu'>
-                        <Link to="/">Proyectos</Link>
+                        <Link to="/" onClick={()=>cerrarMenu()}>Proyectos</Link>
                     </li>
 
                     <li className='logo-escritorio'>
@@ -57,10 +64,10 @@ export function Navbar() {
                     </li>
 
                     <li className='filaMenu'>
-                        <Link to="/menu">Interior tartas</Link>
+                        <Link to="/menu" onClick={()=>cerrarMenu()}>Interior tartas</Link>
                     </li>
                     <li className='filaMenu'>
-                        <Link to="/contact">Contacto</Link>
+                        <Link to="/contact" onClick={()=>cerrarMenu()}>Contacto</Link>
                     </li>
                 </ul>
             </nav>
