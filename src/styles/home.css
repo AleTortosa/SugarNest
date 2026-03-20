@@ -113,14 +113,8 @@
 
 @media (min-width: 651px) {
     .home-carrusel-item {
-        width: 234px;
-        height: 293px;
+        width: 254px;
+        height: 313px;
     }
 }
 
-@media (min-width: 1024px) {
-    .home-carrusel-item {
-        width: 360px;
-        height: 450px;
-    }
-}
