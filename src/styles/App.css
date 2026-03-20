@@ -1,4 +1,4 @@
-:root{
+:root {
     /*Colores*/
     --dark-red: #8a0000;
     --pink: #CB4F6A;
@@ -14,15 +14,18 @@
     --bold: 700;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow-x: hidden;
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -30,7 +33,9 @@ body {
     font-family: var(--body-font-family);
 }
 
-h1, h2, h3{
+h1,
+h2,
+h3 {
     font-family: var(--header-font-family);
 }
 
@@ -44,4 +49,22 @@ main {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+.boton-principal {
+    background-color: var(--dark-red);
+    border: 2px solid var(--dark-red);
+    border-radius: 8px;
+    color: var(--background);    
+    font-family: var(--body-font-family);
+    font-weight: var(--bold);
+    padding: 12px 24px;
+    margin-bottom: 20px;    
+    transition: all 0.3s;
+}
+
+.boton-principal:hover{
+    background-color: var(--light-pink);
+    border: 2px solid var(--dark-red);
+    color: var(--dark-red);    
 }
