@@ -59,7 +59,7 @@ main {
     font-family: var(--body-font-family);
     font-weight: var(--bold);
     padding: 12px 24px;
-    margin-bottom: 20px;    
+        
     transition: all 0.3s;
 }
 

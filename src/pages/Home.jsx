@@ -1,4 +1,5 @@
-import { Fragment, useState } from "react"
+import { Fragment} from "react"
+import { Link } from "react-router-dom"
 import "../styles/home.css"
 import { Carrusel } from "../components/Carrusel.jsx"
 
@@ -11,13 +12,13 @@ import roscon4 from '../assets/images/imagen-carrusel/roscon4.jpeg'
 /*Import fotos carrusel*/
 import tarta1 from '../assets/images/imagen-carrusel/tarta-amor.jpeg'
 import tarta2 from '../assets/images/imagen-carrusel/tarta-chocofresa.jpeg'
-import tarta3 from '../assets/images/imagen-carrusel/tarta-dragon.jpeg'
-import tarta4 from '../assets/images/imagen-carrusel/tarta-elegante.jpeg'
+//import tarta3 from '../assets/images/imagen-carrusel/tarta-dragon.jpeg'
+//import tarta4 from '../assets/images/imagen-carrusel/tarta-elegante.jpeg'
 import tarta5 from '../assets/images/imagen-carrusel/tarta-foca.jpeg'
-import tarta6 from '../assets/images/imagen-carrusel/tarta-harrypoter.jpeg'
+//import tarta6 from '../assets/images/imagen-carrusel/tarta-harrypoter.jpeg'
 import tarta7 from '../assets/images/imagen-carrusel/tarta-osito.jpeg'
 import tarta8 from '../assets/images/imagen-carrusel/tarta-ranas.jpeg'
-import tarta9 from '../assets/images/imagen-carrusel/tarta-rural.jpeg'
+//import tarta9 from '../assets/images/imagen-carrusel/tarta-rural.jpeg'
 import tarta10 from '../assets/images/imagen-carrusel/tarta-taxi.jpeg'
 
 export function Home() {
@@ -60,7 +61,7 @@ export function Home() {
 
                 <Carrusel imagenes={imagenes_carrusel} />
 
-                <button className="boton-principal">Ver todas las tartas</button>
+                <Link to='/proyectos' className="boton-principal">Ver todas las tartas</Link>
             </section>
 
             <section className="seleccion-texto-home">

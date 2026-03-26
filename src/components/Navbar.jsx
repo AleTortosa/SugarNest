@@ -54,7 +54,7 @@ export function Navbar() {
                         <Link to="/" onClick={()=>cerrarMenu()}>P&aacute;gina principal</Link>
                     </li>
                     <li className='filaMenu'>
-                        <Link to="/" onClick={()=>cerrarMenu()}>Proyectos</Link>
+                        <Link to="/proyectos" onClick={()=>cerrarMenu()}>Proyectos</Link>
                     </li>
 
                     <li className='logo-escritorio'>
