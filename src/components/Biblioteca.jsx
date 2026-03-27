@@ -7,9 +7,9 @@
   - imagenes: array de objetos { src }
 */
 
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
-export function Biblioteca( {imagenes} ) {
+export function Biblioteca({ imagenes }) {
     const [activeImg, setActiveImg] = useState(null);
 
     const claseActivaImagen = activeImg
@@ -20,10 +20,26 @@ export function Biblioteca( {imagenes} ) {
         setActiveImg(srcFoto);
     }
 
+    useEffect(() => {
+        if (!activeImg) return;
+
+        const handler = (e) => {
+            if (e.key === "Escape") {
+                setActiveImg(null);
+            }
+        };
+
+        window.addEventListener("keydown", handler);
+
+        return () => {
+            window.removeEventListener("keydown", handler);
+        };
+    }, [activeImg]);
+
     return (
         <Fragment>
             <div className={claseActivaImagen}>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6" style={{ width: '54px', height: '54px' }} onClick={() => fotoActiva(null)}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6 equis" style={{ width: '54px', height: '54px' }} onClick={() => fotoActiva(null)}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
 

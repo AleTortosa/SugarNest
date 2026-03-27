@@ -53,7 +53,7 @@ export function Home() {
 
                 <Carrusel imagenes={imagenes_festivo} />
 
-                <button className="boton-principal">Ver toda la colección</button>
+                <Link className="boton-principal">Ver toda la colección</Link>
             </section>
 
             <section className="seleccion-festivo">
